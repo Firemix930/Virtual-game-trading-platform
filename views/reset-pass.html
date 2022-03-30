@@ -1,0 +1,75 @@
+<!--
+ * @Author: Wang Jianbo
+ * @Date: 2020-11-11 19:15:45
+ * @LastEditTime: 2020-11-12 11:32:54
+ * @Description: IReset password page. Reset password through this page
+ * @FilePath: \VSLibrary\Team Work E\views\reset-pass.html
+-->
+
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>Password reset</title>
+    <link rel="stylesheet" href="/static/css/weui.min.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <style>
+        .weui-cells:after {
+            border-bottom: 0px solid #e5e5e5;
+        }
+    </style>
+</head>
+
+<body style="background-color: #ffffff;">
+    <header class="wy-header">
+        <div class="wy-header-icon-back">
+            <a href="javascript:window.history.back();"></a>
+        </div>
+        <div class="wy-header-title">Password reset</div>
+        <div class="wy-header-icon-index">
+            <a href="/zshop/"></a>
+        </div>
+    </header>
+
+    <form action="/" method="post">
+        <div class="weui-cells weui-cells_form" style="padding-top: 44px;margin-top: 0px;">
+            <div class="weui-cell " style="font-size: 14px;">
+                <div class="weui-cell__hd"><label class="weui-label">Phone num</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="number" pattern="[0-9]*" value="{{mobile}}" placeholder="Please enter your phone number" id="" name="" />
+                </div>
+                <div class="weui-cell__ft">
+                    <i class="weui-icon-warn" style="font-size: 20px;"></i>
+                </div>
+            </div>
+
+            <div class="weui-cell " style="font-size: 14px;">
+                <div class="weui-cell__hd"><label class="weui-label">Password reset</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="password" placeholder="Please enter your new password" id="" name="" />
+                </div>
+                <div class="weui-cell__ft">
+                    <i class="weui-icon-warn" style="font-size: 20px;"></i>
+                </div>
+            </div>
+
+            <div class="weui-cell weui-cell_vcode">
+            </div>
+
+            <div class="weui-btn-area" style="margin-bottom: 140px;">
+                <a class="weui-btn weui-btn_primary" href="javascript:" id="confirmBtn" style="font-size: 14px;height:39px;"><i id="confirmLoading"></i>Confirm</a>
+            </div>
+        </div>
+    </form>
+
+    <div class="weui-msg__extra-area">
+        <div class="weui-footer">
+            <p class="weui-footer__text">Copyright &copy; 2020-2077 zshop by hnd team E</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

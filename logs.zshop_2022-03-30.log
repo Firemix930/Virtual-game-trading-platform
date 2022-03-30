@@ -1,0 +1,563 @@
+[2022-03-30T19:19:03.990] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - Load ./config-default.js...
+[2022-03-30T19:19:03.993] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - Cannot load ./config-override.js.
+[2022-03-30T19:19:04.266] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - process.env.NODE_ENV = [undefined]
+[2022-03-30T19:19:04.266] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - isProduction = [false]
+[2022-03-30T19:19:04.287] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - process controller: cart-contrl.js...
+[2022-03-30T19:19:04.459] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - init sequelize...
+[2022-03-30T19:19:04.477] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - import model from file advert.js...
+[2022-03-30T19:19:04.478] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - model defined for table: advert
+{
+  "id": {
+    "type": "INTEGER",
+    "autoIncrement": true,
+    "primaryKey": true,
+    "allowNull": false
+  },
+  "name": {
+    "type": "STRING(100)",
+    "allowNull": false
+  },
+  "description": {
+    "type": "STRING(200)",
+    "allowNull": true
+  },
+  "position": {
+    "type": "INTEGER",
+    "allowNull": false
+  },
+  "image": {
+    "type": "STRING(100)",
+    "allowNull": false
+  },
+  "url": {
+    "type": "STRING(100)",
+    "allowNull": true
+  },
+  "createdAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "updatedAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "version": {
+    "type": "BIGINT",
+    "allowNull": false,
+    "defaultValue": 0
+  }
+}
+[2022-03-30T19:19:04.488] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - import model from file cart.js...
+[2022-03-30T19:19:04.491] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - model defined for table: cart
+{
+  "id": {
+    "type": "INTEGER",
+    "autoIncrement": true,
+    "primaryKey": true,
+    "allowNull": false
+  },
+  "userId": {
+    "type": "STRING(30)",
+    "allowNull": false
+  },
+  "prodId": {
+    "type": "INTEGER",
+    "allowNull": false
+  },
+  "count": {
+    "type": "INTEGER",
+    "allowNull": false
+  },
+  "createdAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "updatedAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "version": {
+    "type": "BIGINT",
+    "allowNull": false,
+    "defaultValue": 0
+  }
+}
+[2022-03-30T19:19:04.495] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - import model from file collection.js...
+[2022-03-30T19:19:04.496] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - model defined for table: collection
+{
+  "id": {
+    "type": "STRING(50)",
+    "primaryKey": true
+  },
+  "userId": {
+    "type": "STRING(30)",
+    "allowNull": false
+  },
+  "prodId": {
+    "type": "INTEGER",
+    "allowNull": false
+  },
+  "createdAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "updatedAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "version": {
+    "type": "BIGINT",
+    "allowNull": false,
+    "defaultValue": 0
+  }
+}
+[2022-03-30T19:19:04.515] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - import model from file group_attri.js...
+[2022-03-30T19:19:04.525] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - model defined for table: group_attri
+{
+  "id": {
+    "type": "INTEGER",
+    "autoIncrement": true,
+    "primaryKey": true,
+    "allowNull": false
+  },
+  "prodGroup": {
+    "type": "INTEGER",
+    "allowNull": false
+  },
+  "attriId": {
+    "type": "STRING(20)",
+    "allowNull": false
+  },
+  "attriName": {
+    "type": "STRING(30)",
+    "allowNull": false
+  },
+  "createdAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "updatedAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "version": {
+    "type": "BIGINT",
+    "allowNull": false,
+    "defaultValue": 0
+  }
+}
+[2022-03-30T19:19:04.531] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - import model from file group_attri_value.js...
+[2022-03-30T19:19:04.532] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - model defined for table: group_attri_value
+{
+  "id": {
+    "type": "INTEGER",
+    "autoIncrement": true,
+    "primaryKey": true,
+    "allowNull": false
+  },
+  "groupAttriId": {
+    "type": "INTEGER",
+    "allowNull": false
+  },
+  "attriValue": {
+    "type": "STRING(200)",
+    "allowNull": false
+  },
+  "createdAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "updatedAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "version": {
+    "type": "BIGINT",
+    "allowNull": false,
+    "defaultValue": 0
+  }
+}
+[2022-03-30T19:19:04.539] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - import model from file order.js...
+[2022-03-30T19:19:04.541] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - model defined for table: order
+{
+  "id": {
+    "type": "STRING(50)",
+    "primaryKey": true
+  },
+  "userId": {
+    "type": "STRING(30)",
+    "allowNull": false
+  },
+  "province": {
+    "type": "STRING(20)",
+    "allowNull": false
+  },
+  "city": {
+    "type": "STRING(20)",
+    "allowNull": false
+  },
+  "area": {
+    "type": "STRING(20)",
+    "allowNull": false
+  },
+  "address": {
+    "type": "STRING(100)",
+    "allowNull": false
+  },
+  "recipient": {
+    "type": "STRING(20)",
+    "allowNull": false
+  },
+  "recipientPhone": {
+    "type": "STRING(30)",
+    "allowNull": false
+  },
+  "deliveryType": {
+    "type": "INTEGER",
+    "defaultValue": 1,
+    "allowNull": false
+  },
+  "expressCompany": {
+    "type": "STRING(50)",
+    "allowNull": false
+  },
+  "expressNumber": {
+    "type": "STRING(50)",
+    "allowNull": false
+  },
+  "status": {
+    "type": "INTEGER",
+    "defaultValue": 1,
+    "allowNull": false
+  },
+  "deliveryFee": {
+    "type": "DECIMAL",
+    "defaultValue": 10,
+    "allowNull": false
+  },
+  "prodPrice": {
+    "type": "DECIMAL",
+    "allowNull": false
+  },
+  "totalPrice": {
+    "type": "DECIMAL",
+    "allowNull": false
+  },
+  "payStartTime": {
+    "type": "DATE",
+    "allowNull": true
+  },
+  "createdAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "updatedAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "version": {
+    "type": "BIGINT",
+    "allowNull": false,
+    "defaultValue": 0
+  }
+}
+[2022-03-30T19:19:04.550] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - import model from file order_prod.js...
+[2022-03-30T19:19:04.551] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - model defined for table: order_prod
+{
+  "id": {
+    "type": "STRING(50)",
+    "primaryKey": true
+  },
+  "orderId": {
+    "type": "STRING(50)",
+    "allowNull": false
+  },
+  "prodId": {
+    "type": "INTEGER",
+    "allowNull": false
+  },
+  "price": {
+    "type": "DECIMAL",
+    "allowNull": false
+  },
+  "count": {
+    "type": "INTEGER",
+    "allowNull": false
+  },
+  "cartId": {
+    "type": "INTEGER",
+    "allowNull": false
+  },
+  "createdAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "updatedAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "version": {
+    "type": "BIGINT",
+    "allowNull": false,
+    "defaultValue": 0
+  }
+}
+[2022-03-30T19:19:04.558] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - import model from file product.js...
+[2022-03-30T19:19:04.560] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - model defined for table: product
+{
+  "id": {
+    "type": "INTEGER",
+    "autoIncrement": true,
+    "primaryKey": true,
+    "allowNull": false
+  },
+  "groupId": {
+    "type": "INTEGER",
+    "allowNull": false
+  },
+  "name": {
+    "type": "STRING(100)",
+    "allowNull": false
+  },
+  "description": {
+    "type": "STRING(200)",
+    "allowNull": false
+  },
+  "price": {
+    "type": "DECIMAL",
+    "allowNull": false
+  },
+  "image": {
+    "type": "STRING(100)",
+    "allowNull": false
+  },
+  "recommend": {
+    "type": "INTEGER",
+    "allowNull": true
+  },
+  "sales": {
+    "type": "INTEGER",
+    "defaultValue": 0,
+    "allowNull": false
+  },
+  "stock": {
+    "type": "INTEGER",
+    "defaultValue": 0,
+    "allowNull": false
+  },
+  "detailImages": {
+    "type": "STRING(300)",
+    "allowNull": false
+  },
+  "detailHtml": {
+    "type": "STRING(100)",
+    "allowNull": false
+  },
+  "createdAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "updatedAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "version": {
+    "type": "BIGINT",
+    "allowNull": false,
+    "defaultValue": 0
+  }
+}
+[2022-03-30T19:19:04.566] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - import model from file prod_attri.js...
+[2022-03-30T19:19:04.567] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - model defined for table: prod_attri
+{
+  "id": {
+    "type": "STRING(50)",
+    "primaryKey": true
+  },
+  "prodId": {
+    "type": "INTEGER",
+    "allowNull": false
+  },
+  "groupAttriValueId": {
+    "type": "INTEGER",
+    "allowNull": false
+  },
+  "createdAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "updatedAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "version": {
+    "type": "BIGINT",
+    "allowNull": false,
+    "defaultValue": 0
+  }
+}
+[2022-03-30T19:19:04.574] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - import model from file user.js...
+[2022-03-30T19:19:04.578] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - model defined for table: user
+{
+  "id": {
+    "type": "STRING(50)",
+    "primaryKey": true
+  },
+  "email": {
+    "type": "STRING(100)",
+    "unique": true,
+    "allowNull": true
+  },
+  "mobile": {
+    "type": "STRING(11)",
+    "unique": true,
+    "allowNull": false
+  },
+  "userId": {
+    "type": "STRING(30)",
+    "unique": true,
+    "allowNull": false
+  },
+  "passwd": {
+    "type": "STRING(100)",
+    "allowNull": false
+  },
+  "name": {
+    "type": "STRING(100)",
+    "allowNull": false
+  },
+  "gender": {
+    "type": "BOOLEAN",
+    "allowNull": true
+  },
+  "headImage": {
+    "type": "STRING(100)",
+    "allowNull": false
+  },
+  "createdAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "updatedAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "version": {
+    "type": "BIGINT",
+    "allowNull": false,
+    "defaultValue": 0
+  }
+}
+[2022-03-30T19:19:04.583] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - import model from file user_address.js...
+[2022-03-30T19:19:04.584] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - model defined for table: user_address
+{
+  "id": {
+    "type": "STRING(50)",
+    "primaryKey": true
+  },
+  "userId": {
+    "type": "STRING(30)",
+    "allowNull": false
+  },
+  "province": {
+    "type": "STRING(20)",
+    "allowNull": false
+  },
+  "city": {
+    "type": "STRING(20)",
+    "allowNull": false
+  },
+  "area": {
+    "type": "STRING(20)",
+    "allowNull": false
+  },
+  "address": {
+    "type": "STRING(100)",
+    "allowNull": false
+  },
+  "name": {
+    "type": "STRING(20)",
+    "allowNull": false
+  },
+  "phone": {
+    "type": "STRING(30)",
+    "allowNull": false
+  },
+  "type": {
+    "type": "INTEGER",
+    "allowNull": false
+  },
+  "createdAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "updatedAt": {
+    "type": "DATE",
+    "allowNull": false
+  },
+  "version": {
+    "type": "BIGINT",
+    "allowNull": false,
+    "defaultValue": 0
+  }
+}
+[2022-03-30T19:19:04.594] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/user/cart
+[2022-03-30T19:19:04.598] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/delCartProd
+[2022-03-30T19:19:04.599] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/chgCartProdCount
+[2022-03-30T19:19:04.600] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/addCartProd
+[2022-03-30T19:19:04.600] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - process controller: collection-contrl.js...
+[2022-03-30T19:19:04.601] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/user/collection/index
+[2022-03-30T19:19:04.602] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/collection/act
+[2022-03-30T19:19:04.607] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/user/collection/del/:id
+[2022-03-30T19:19:04.607] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - process controller: index-contrl.js...
+[2022-03-30T19:19:04.612] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/
+[2022-03-30T19:19:04.615] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/api/search/:key/:limit/:offset/:ordertype
+[2022-03-30T19:19:04.615] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/user/userPage
+[2022-03-30T19:19:04.616] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/checkUserInfo
+[2022-03-30T19:19:04.616] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/uptUserInfo
+[2022-03-30T19:19:04.617] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/user/uptPassPage
+[2022-03-30T19:19:04.617] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/checkPassword
+[2022-03-30T19:19:04.617] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/uptPass
+[2022-03-30T19:19:04.618] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - process controller: order-contrl.js...
+[2022-03-30T19:19:04.619] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/user/settlement/:orderId
+[2022-03-30T19:19:04.619] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/user/orderDetail/:orderId
+[2022-03-30T19:19:04.619] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/settlementAct
+[2022-03-30T19:19:04.619] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/buyNow
+[2022-03-30T19:19:04.619] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/confirmOrder
+[2022-03-30T19:19:04.620] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/confirmReceipt
+[2022-03-30T19:19:04.620] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/delOrder
+[2022-03-30T19:19:04.620] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/cancelOrder
+[2022-03-30T19:19:04.620] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/paySuccCancelOrder
+[2022-03-30T19:19:04.621] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/payOrder
+[2022-03-30T19:19:04.621] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/user/paySuccess/:orderId
+[2022-03-30T19:19:04.621] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/user/orderList
+[2022-03-30T19:19:04.621] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/getOrderList
+[2022-03-30T19:19:04.621] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - process controller: prod-contrl.js...
+[2022-03-30T19:19:04.622] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/prodDetail/:pid
+[2022-03-30T19:19:04.623] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - process controller: signin-contrl.js...
+[2022-03-30T19:19:04.632] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - openCaptcha = [false]
+[2022-03-30T19:19:04.632] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/api/signin
+[2022-03-30T19:19:04.632] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/signout
+[2022-03-30T19:19:04.633] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/login
+[2022-03-30T19:19:04.633] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/resetPass
+[2022-03-30T19:19:04.633] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/registPage
+[2022-03-30T19:19:04.633] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/api/regist
+[2022-03-30T19:19:04.633] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/api/countUserMobile
+[2022-03-30T19:19:04.634] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/userapi/getLoginUserInfo
+[2022-03-30T19:19:04.634] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: POST /zshop/api/checkCaptcha
+[2022-03-30T19:19:04.634] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - register URL mapping: GET /zshop/captcha
+[2022-03-30T19:19:04.636] [INFO] [f5bb6aefa7d0467ea25880991e71bd8b] system - app started at port 3000...
+[2022-03-30T19:19:23.257] [INFO] [bb8ea9b624614bc79d0d1f9831aef6e6] zshop - Process GET /...
+[2022-03-30T19:19:23.261] [INFO] [bb8ea9b624614bc79d0d1f9831aef6e6] zshop - ctx.response.status=404
+[2022-03-30T19:19:23.280] [INFO] [360a75e9d73e46ffb8725ddddc933f3e] zshop - Process GET /static/html/404.html...
+[2022-03-30T19:19:23.282] [INFO] [360a75e9d73e46ffb8725ddddc933f3e] zshop - ctx.response.status=200
+[2022-03-30T19:19:23.306] [INFO] [9ba9381787244e2eb559e8d546088877] zshop - Process GET /static/css/weui.min.css...
+[2022-03-30T19:19:23.309] [INFO] [aa0ea9805f62464aab5b2c84f4dadeb5] zshop - Process GET /static/css/style.css...
+[2022-03-30T19:19:23.313] [INFO] [aa0ea9805f62464aab5b2c84f4dadeb5] zshop - ctx.response.status=200
+[2022-03-30T19:19:23.323] [INFO] [aa0ea9805f62464aab5b2c84f4dadeb5] zshop - ctx.response.status=200
+[2022-03-30T19:19:23.404] [INFO] [89e228c303f44e7695773905ec8386ff] zshop - Process GET /static/images/icon-back.png...
+[2022-03-30T19:19:23.405] [INFO] [0d166b7c2d044fb3b90dfbbc574c554f] zshop - Process GET /static/images/index_bak.png...
+[2022-03-30T19:19:23.405] [INFO] [0d166b7c2d044fb3b90dfbbc574c554f] zshop - ctx.response.status=200
+[2022-03-30T19:19:23.406] [INFO] [0d166b7c2d044fb3b90dfbbc574c554f] zshop - ctx.response.status=200
+[2022-03-30T19:19:23.423] [INFO] [0a6823f1629b447a8c9529f2b4be0f50] zshop - Process GET /favicon.ico...
+[2022-03-30T19:19:23.433] [INFO] [0a6823f1629b447a8c9529f2b4be0f50] zshop - ctx.response.status=200

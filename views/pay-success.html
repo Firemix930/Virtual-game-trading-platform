@@ -1,0 +1,57 @@
+<!--
+ * @Author: Wang Jianbo
+ * @Date: 2020-11-11 19:15:45
+ * @LastEditTime: 2020-11-12 11:28:24
+ * @Description: Successful payment interface. The user will know the payment status through this page
+ * @FilePath: \VSLibrary\Team Work E\views\pay-success.html
+-->
+
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>Payment success</title>
+    <link rel="stylesheet" href="/static/css/weui.min.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script data-main="/static/js/app/pay-success" src="/static/js/lib/require.js" defer async="true"></script>
+</head>
+
+<body>
+    <header class="wy-header">
+        <div class="wy-header-icon-back">
+            <a href="javascript:window.history.back();"></a>
+        </div>
+        <div class="wy-header-title">Mall</div>
+        <div class="wy-header-icon-index">
+            <a href="/zshop/"></a>
+        </div>
+    </header>
+
+    <div class="weui-msg" style="padding-top: 50px;">
+        <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+        <div class="weui-msg__text-area">
+            <h2 class="weui-msg__title" style="font-size: 16px;">Payment success</h2>
+            <p class="weui-msg__desc" style="font-size: 14px;">We have received this order, and will deliver the goods to you as soon as possible. You can go<a href="/zshop/user/orderDetail/{{orderId}}">order details</a>to check status at any time</p>
+        </div>
+        <div class="weui-msg__opr-area">
+            <p class="weui-btn-area">
+                <a href="/zshop/user/orderList" class="weui-btn weui-btn_primary" style="font-size: 14px;height:39px;">The order list</a>
+                <a href="javascript:void(0);" id="cancelOrderBtn" class="weui-btn weui-btn_default" style="font-size: 14px;height:39px;"><i id="cancelOrderLoading"></i>Cancel the order</a>
+            </p>
+        </div>
+        <div class="weui-msg__extra-area">
+            <div class="weui-footer">
+                <p class="weui-footer__links">
+                    <a href="/zshop/" class="weui-footer__link">Homepage</a>
+                </p>
+                <p class="weui-footer__text">Copyright &copy; 2020-2077 zshop by hnd Team E</p>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" id="orderId" name="orderId" value="{{orderId}}" /> {% include "public-tip.html" %}
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>Message prompt</title>
+    <link rel="stylesheet" href="/static/css/weui.min.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+    <header class="wy-header">
+        <div class="wy-header-icon-back">
+            <a href="javascript:window.history.back();"></a>
+        </div>
+        <div class="wy-header-title">System prompt</div>
+        <div class="wy-header-icon-index">
+            <a href="/zshop/"></a>
+        </div>
+    </header>
+
+    <div class="weui-msg" style="padding-top: 100px;">
+        <div class="weui-msg__text-area">
+            <p class="weui-msg__desc" style="font-size: 14px;">{{msg}}，<a href="javascript:window.location.reload();">Click the refresh</a></p>
+        </div>
+        <div class="weui-msg__extra-area">
+            <div class="weui-footer">
+                <p class="weui-footer__links">
+                    <a href="/zshop/" class="weui-footer__link">Homepage</a>
+                </p>
+                <p class="weui-footer__text">Copyright &copy; 2020-2099 zshop by hnd Team E</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

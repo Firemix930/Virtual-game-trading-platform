@@ -1,0 +1,104 @@
+<!--
+ * @Author: Lu Xiaohan
+ * @Date: 2020-11-11 19:15:45
+ * @LastEditTime: 2020-11-12 11:22:55
+ * @Description: Display the order details page, users can view the order details through this page
+ * @FilePath: \VSLibrary\Team Work E\views\order-detail.html
+-->
+
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>The order details</title>
+    <link rel="stylesheet" href="/static/css/weui.min.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script data-main="/static/js/app/order-detail" src="/static/js/lib/require.js" defer async="true"></script>
+    <style>
+        .weui-media-box {
+            padding: 1px;
+        }
+        
+        .weui-cell:before {
+            border-top: 0px solid #e5e5e5;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="wy-header">
+        <div class="wy-header-icon-back">
+            <a href="javascript:window.history.back();"></a>
+        </div>
+        <div class="wy-header-title">The order details</div>
+        <div class="wy-header-icon-index">
+            <a href="/zshop/"></a>
+        </div>
+    </header>
+
+    <div class="weui-tab__panel" style="padding-top:41px">
+        <div class="weui-cells" style="margin-top:0px;">
+            <div class="weui-cell" style="padding: 5px 15px;">
+                <div class="weui-cell__bd">
+                    <p style="font-size:14px;">The order status <span style="color:gray;margin-left: 31px;">Wait sending</span></p>
+                </div>
+            </div>
+            <div class="weui-cell" style="padding: 5px 15px;">
+                <div class="weui-cell__bd">
+                    <p style="font-size:14px;">Order time <span style="color:gray;margin-left: 31px;"> {{order.createdAtFormat}}</span></p>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="orderId" name="orderId" value="{{order.id}}" />
+
+        <div class="weui-panel weui-panel_access">
+            <div class="weui-panel__bd">
+                {% for op in opArr %}
+                <a href="/zshop/prodDetail/{{op.prodId}}" class="weui-media-box weui-media-box_appmsg weui-cell_access">
+                    <div class="weui-media-box__hd" style="width:92px;height:92px;">
+                        <img class="weui-media-box__thumb" src="{{op.image}}" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title" style="font-size:14px;margin-bottom:5px;">{{op.name}}</h4>
+                        <p class="weui-media-box__desc" style="font-size:14px;margin-bottom:10px;-webkit-line-clamp:1;">{{op.attriValueStr}}</p>
+                        <p class="weui-media-box__desc" style="font-size:14px;color:red;">¥{{op.price}}</p>
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <div style="float:right;">
+                            <p style="font-size:15px;color: #999;margin-right:20px;">x{{op.count}}</p>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="weui-cells weui-cells_form" style="margin-top:10px;">
+            <div class="weui-cell" style="padding: 5px 15px;">
+                <div class="weui-cell__bd">
+                    <p style="font-size:14px;">Price of goods <span style="color:red;margin-left: 31px;"> ¥{{order.prodPrice}}</span></p>
+                </div>
+            </div>
+            <div class="weui-cell" style="padding: 5px 15px;">
+                <div class="weui-cell__bd">
+                    <p style="font-size:14px;">Total amount <span style="color:red;margin-left: 31px;"> ¥{{order.totalPrice}}</span></p>
+                </div>
+            </div>
+
+            <div class="weui-btn-area" style="margin-top:5px;margin-bottom: 7px;">
+                {% if order.status == 1 or order.status == 2 %}
+                <a class="weui-btn weui-btn_primary" href="javascript:void(0);" id="wePayBtn" style="font-size: 14px;height:39px;"><i id="payLoading"></i>WeChat pay</a>
+                <a class="weui-btn weui-btn_default" href="javascript:void(0);" id="cancelBtn" style="font-size: 14px;height:39px;"><i id="cancelLoading"></i>Cancel the order</a> {% elif order.status == 3 %}
+                <a class="weui-btn weui-btn_primary" href="javascript:void(0);" id="reminderBtn" style="font-size: 14px;height:39px;"><i id="reminderLoading"></i>Remind the delivery</a> {% elif order.status == 4 %}
+                <a class="weui-btn weui-btn_primary" href="javascript:void(0);" id="confirmBtn" style="font-size: 14px;height:39px;"><i id="confirmLoading"></i>Confirm the goods</a> {% elif order.status == 5 %}
+                <a class="weui-btn weui-btn_primary" href="javascript:void(0);" id="evaluateBtn" style="font-size: 14px;height:39px;"><i id="evaluateLoading"></i>To evaluate</a> {% elif order.status == 6 %}
+                <a class="weui-btn weui-btn_primary" href="javascript:void(0);" id="delBtn" style="font-size: 14px;height:39px;"><i id="delLoading"></i>Delete</a> {% endif %}
+            </div>
+        </div>
+    </div>
+    {% include "public-tip.html" %}
+</body>
+
+</html>

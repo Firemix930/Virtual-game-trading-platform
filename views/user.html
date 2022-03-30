@@ -1,0 +1,112 @@
+<!--
+ * @Author: Lyu Zelin
+ * @Date: 2020-11-11 19:15:45
+ * @LastEditTime: 2020-11-12 11:10:03
+ * @Description: Display a personal information page where users can view orders
+ * @FilePath: \VSLibrary\Team Work E\views\user.html
+-->
+
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>User</title>
+    <link rel="stylesheet" href="/static/css/weui.min.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script data-main="/static/js/app/user.js" src="/static/js/lib/require.js" defer async="true"></script>
+    <style>
+        .weui-cells:after {
+            border-bottom: 0px solid #e5e5e5;
+        }
+        
+        .weui-uploader__file {
+            margin-right: 0px;
+            margin-bottom: 0px;
+            width: 65px;
+            height: 65px;
+            border-radius: 4px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body style="background-color: #ffffff;">
+    <header class="wy-header">
+        <div class="wy-header-icon-back">
+            <a href="javascript:window.history.back();"></a>
+        </div>
+        <div class="wy-header-title">User</div>
+        <div class="wy-header-icon-index">
+            <a href="/zshop/"></a>
+        </div>
+    </header>
+
+    <form action="/" method="post" enctype="multipart/form-data">
+        <div class="weui-cells weui-cells_form" style="padding-top: 44px;margin-top: 0px;">
+            <div class="weui-cell" style="font-size: 14px;" id="nameCell">
+                <div class="weui-cell__hd"><label class="weui-label">Username <span style="color:red;">*</span></label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{name}}" placeholder="Please input your username" id="name" name="name" />
+                </div>
+                <div class="weui-cell__ft">
+                    <i class="weui-icon-warn" style="font-size: 20px;"></i>
+                </div>
+            </div>
+            <div class="weui-cell " style="font-size: 14px;" id="userIdCell">
+                <div class="weui-cell__hd"><label class="weui-label">The user ID<span style="color:red;">*</span></label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" value="{{userId}}" placeholder="Please input your user ID" id="userId" name="userId" />
+                </div>
+                <div class="weui-cell__ft">
+                    <i class="weui-icon-warn" style="font-size: 20px;"></i>
+                </div>
+            </div>
+
+            <div class="weui-cell " style="font-size: 14px;" id="emailCell">
+                <div class="weui-cell__hd"><label class="weui-label">Email</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="email" value="{{email}}" placeholder="Please input your email" id="email" name="email" />
+                </div>
+                <div class="weui-cell__ft">
+                    <i class="weui-icon-warn" style="font-size: 20px;"></i>
+                </div>
+            </div>
+
+            <div class="weui-gallery" id="gallery" style="z-index:9999;">
+                <span class="weui-gallery__img" id="galleryImg"></span>
+            </div>
+
+            <div id="uploader">
+                <div class="weui-uploader__input-box" style="display:none;">
+                    <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" />
+                </div>
+                <div class="weui-cell weui-cell_access" style="font-size: 14px;" id="headDiv">
+                    <div class="weui-cell__hd"><label class="weui-label">Choose headimg</label></div>
+                    <div class="weui_cell_ft ">
+                        <ul class="weui-uploader__files " id="uploaderFiles">
+                            <li class="weui-uploader__file " style="background-image:url({{headImage}})"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weui-cell weui-cell_vcode">
+            </div>
+
+            <div class="weui-btn-area" style="margin-bottom: 140px;">
+                <a class="weui-btn weui-btn_primary" href="javascript:" id="confirmBtn" style="font-size: 14px;height:39px;"><i id="confirmLoading"></i>Confirm</a>
+            </div>
+        </div>
+    </form>
+
+    <div class="weui-msg__extra-area">
+        <div class="weui-footer">
+            <p class="weui-footer__text">Copyright &copy; 2020-2077 zshop by hnd team E</p>
+        </div>
+    </div>
+    {% include "public-tip.html" %}
+</body>
+
+</html>

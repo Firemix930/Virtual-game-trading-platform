@@ -1,0 +1,89 @@
+<!--
+ * @Author: Lu Xiaohan
+ * @Date: 2020-11-11 19:15:45
+ * @LastEditTime: 2020-11-12 11:13:52
+ * @Description: Display the order settlement page, through which the user can settle the purchased goods
+ * @FilePath: \VSLibrary\Team Work E\views\settlement.html
+-->
+
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>Settlement</title>
+    <link rel="stylesheet" href="/static/css/weui.min.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script data-main="/static/js/app/settlement" src="/static/js/lib/require.js" defer async="true"></script>
+    <style>
+        .weui-media-box {
+            padding: 1px;
+        }
+        
+        .weui-cell:before {
+            border-top: 0px solid #e5e5e5;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="wy-header">
+        <div class="wy-header-icon-back">
+            <a href="javascript:window.history.back();"></a>
+        </div>
+        <div class="wy-header-title">Settlement</div>
+        <div class="wy-header-icon-index">
+            <a href="/zshop/"></a>
+        </div>
+    </header>
+
+    <div class="weui-tab__panel" style="padding-top:41px">
+        <input type="hidden" id="orderId" name="orderId" value="{{order.id}}" />
+
+        <div class="weui-panel weui-panel_access">
+            <div class="weui-panel__bd">
+                {% for op in opArr %}
+                <a href="/zshop/prodDetail/{{op.prodId}}" class="weui-media-box weui-media-box_appmsg weui-cell_access">
+                    <div class="weui-media-box__hd" style="width:92px;height:92px;">
+                        <img class="weui-media-box__thumb" src="{{op.image}}" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title" style="font-size:14px;margin-bottom:5px;">{{op.name}}</h4>
+                        <p class="weui-media-box__desc" style="margin-bottom:10px;-webkit-line-clamp:1;">{{op.attriValueStr}}</p>
+                        <p class="weui-media-box__desc" style="color:red;">¥{{op.price}}</p>
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <div style="float:right;">
+                            <p style="font-size:15px;color: #999;margin-right:20px;">x{{op.count}}</p>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="weui-cells weui-cells_form" style="margin-top:10px;">
+            <div class="weui-cell" style="padding: 5px 15px;">
+                <div class="weui-cell__bd">
+                    <p style="font-size:14px;margin-left:0px;">Goods Price</p>
+                </div>
+                <div style="margin-right:4px;font-size:14px;color:red;">¥{{order.prodPrice}}</div>
+                <br>
+                <div class="weui-cell__bd">
+                    <p style="font-size:14px;margin-left:0px;">Total</p>
+                </div>
+                <div style="margin-right:4px;font-size:14px;color:red;">¥{{order.totalPrice}}</div>
+            </div>
+        </div>
+
+        <div class="weui-cell">
+            <a class="weui-btn weui-btn_primary" href="javascript:void(0);" id="wePayBtn" style="width:100%;font-size: 14px;height:39px;"><i id="payLoading"></i>Wechat Pay</a>
+        </div>
+    </div>
+
+    </div>
+    {% include "public-tip.html" %}
+</body>
+
+</html>

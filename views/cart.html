@@ -1,0 +1,90 @@
+<!--
+ * @Author: Lyu Zelin
+ * @Date: 2020-11-11 19:15:45
+ * @LastEditTime: 2020-11-12 10:53:46
+ * @Description: Display the shopping cart page and the user can delete and add items to the cart
+ * @FilePath: \VSLibrary\Team Work E\views\cart.html
+-->
+
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>Shopcart</title>
+    <link rel="stylesheet" href="/static/css/weui.min.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script data-main="/static/js/app/cart" src="/static/js/lib/require.js" defer async="true"></script>
+    <style>
+        .weui-media-box_appmsg .weui-media-box__hd {
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="wy-header">
+        <div class="wy-header-icon-back">
+            <a href="javascript:window.history.back();"></a>
+        </div>
+        <div class="wy-header-title">Shopcart</div>
+        <div class="wy-header-icon-index">
+            <a href="/zshop/"></a>
+        </div>
+    </header>
+
+    <div class="weui-tab__panel">
+        <div class="weui-panel weui-panel_access" style="padding-top:41px">
+            <div class="weui-panel__bd">
+                {% for ucp in cartProds %}
+                <div class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd weui-cells_checkbox">
+                        <label class="weui-check__label" for="cart-pto{{ucp.cid}}">
+							<div class="weui-cell__hd" ><input type="checkbox" class="weui-check" name="cartpro" id="cart-pto{{ucp.cid}}" ><i class="weui-icon-checked"></i></div>
+						</label>
+                    </div>
+                    <a href="/zshop/prodDetail/{{ucp.pid}}" class="weui-media-box__hd" style="width:92px;height:92px;">
+                        <img class="weui-media-box__thumb" src="{{ucp.image}}" alt="">
+                    </a>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title" style="font-size:14px;margin-bottom:2px;">{{ucp.name}}</h4>
+                        <p class="weui-media-box__desc" style="margin-bottom:2px;-webkit-line-clamp:1;">{{ucp.attriValuesStr}}</p>
+                        <div style="font-size:13px;color:#999;margin-bottom:2px;">Inventory {{ucp.stock}} pieces</div>
+                        <p class="weui-media-box__desc" id="pricep_{{ucp.cid}}" style="color:red;">¥{{ucp.price}}</p>
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <div style="float:right;">
+                            <a href="javascript:;" cid="{{ucp.cid}}" class="wy-dele" style="margin-bottom:35px;margin-left:65px;"></a>
+                            <div class="Spinner" id="spinner_{{ucp.cid}}" cid="{{ucp.cid}}" count="{{ucp.count}}" stock="{{ucp.stock}}"></div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% if totalSize == 0 %}
+        <div class="weui-loadmore weui-loadmore_line" id="nodata">
+            <a class="weui-loadmore__tips" style="background-color: #f8f8f8;" href="/zshop/">The shopping cart is empty. Go and pick up the items</a>
+        </div>
+        {% endif %}
+    </div>
+
+    {% if totalSize > 0 %}
+    <div class="weui-tabbar" style="position:fixed">
+        <div class="weui-media-box__hd weui-cells_checkbox" style="line-height: 44px;margin-left:15px;">
+            <label class="weui-check__label" for="cart-all">
+				<div class="weui-cell__hd" ><input type="checkbox" class="weui-check" id="cart-all"><i class="weui-icon-checked"></i><span style="font-size: 13px;"> Future generations<span></div>
+			</label>
+        </div>
+        <div style="margin:0 auto;line-height: 47px;font-size: 13px;">
+            Total : <span style="color:red" id="totalPrice">￥{{totalPrice}}</span>
+        </div>
+        <a href="javascript:void(0);" style="width: 110px;background-color: gray;color:#fff;text-align:center;line-height: 44px;font-size: 14px;" id="settlement">
+			Settlement
+		</a>
+    </div>
+    {% endif %} {% include "public-tip.html" %}
+</body>
+
+</html>

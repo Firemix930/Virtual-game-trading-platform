@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>订单详情</title>
+    <link rel="stylesheet" href="./style/weui.min.css"/>
+	<link rel="stylesheet" href="./style/style.css"/>
+	<script data-main="js/app/order-detail" src="js/lib/require.js" defer async="true"></script>
+    <style>
+		.weui-media-box {
+			padding: 1px;
+		}
+		.weui-cell:before{
+			border-top: 0px solid #e5e5e5;
+		}
+	</style>
+</head>
+
+<body>
+	<header class="wy-header">
+	    <div class="wy-header-icon-back"><a href="javascript:window.history.back();"></a></div>
+	    <div class="wy-header-title">订单详情</div>
+		<div class="wy-header-icon-index"><a href="index.html"></a></div>
+	</header>
+
+	<div class="weui-tab__panel" style="padding-top:41px">
+		<div class="weui-cells" style="margin-top:0px;" >
+			<div class="weui-cell" style="padding: 5px 15px;">
+				<div class="weui-cell__bd">
+					<p style="font-size:14px;">订单状态 <span style="color:gray;margin-left: 31px;"> 待支付</span></p>
+				</div>
+			</div>
+			<div class="weui-cell" style="padding: 5px 15px;">
+				<div class="weui-cell__bd">
+					<p style="font-size:14px;">下单时间 <span style="color:gray;margin-left: 31px;"> 2018-03-27 15:32:56</span></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="weui-cells" style="margin-top:10px;" >
+			<div class="weui-cell" style="padding: 5px 15px;">
+				<div class="weui-cell__bd">
+					<p style="font-size:14px;">配送方式 <span style="color:gray;margin-left: 31px;"> 快递</span></p>
+				</div>
+			</div>
+			<div class="weui-cell" style="padding: 5px 15px;">
+				<div class="weui-cell__bd">
+					<p style="font-size:14px;">收件人名 <span style="color:gray;margin-left: 31px;"> 杜杰 13854652512</span></p>
+				</div>
+			</div>
+			<div class="weui-cell" style="padding: 5px 15px;">
+				<div class="weui-cell__bd">
+					<p style="font-size:14px;">收件地址 <span style="color:gray;margin-left: 31px;"> 广州市天河区电商产业园105号</span></p>
+				</div>
+			</div>
+			<div class="weui-cell" style="padding: 5px 15px;">
+				<div class="weui-cell__bd">
+					<p style="font-size:14px;">快递公司 <span style="color:gray;margin-left: 31px;"> 顺丰</span></p>
+				</div>
+			</div>
+			<div class="weui-cell" style="padding: 5px 15px;">
+				<div class="weui-cell__bd">
+					<p style="font-size:14px;">快递单号 <span style="color:gray;margin-left: 31px;"> 0123456789</span></p>
+				</div>
+			</div>
+			<div class="weui-cell" style="padding: 5px 15px;">
+				<div class="weui-cell__bd">
+					<p style="font-size:14px;">物流详情 <span style="color:gray;margin-left: 31px;"> 暂无信息</span></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="weui-panel weui-panel_access">
+			<div class="weui-panel__bd">
+				<a href="prod-detail.html" class="weui-media-box weui-media-box_appmsg weui-cell_access">
+					<div class="weui-media-box__hd" style="width:92px;height:92px;">
+						<img class="weui-media-box__thumb" src="./images/good3.jpg" alt="">
+					</div>
+					<div class="weui-media-box__bd">
+						<h4 class="weui-media-box__title" style="font-size:14px;margin-bottom:5px;">魅蓝 Note6</h4>
+						<p class="weui-media-box__desc" style="font-size:14px;margin-bottom:10px;-webkit-line-clamp:1;">公开版 深空灰 64GB</p>
+						<p class="weui-media-box__desc" style="font-size:14px;color:red;">¥1099</p>
+					</div>
+					<div class="weui-media-box__bd" >
+						<div style="float:right;">
+							<p style="font-size:15px;color: #999;margin-right:20px;">x1</p>
+						</div>
+					</div>
+				</a>
+				<a href="prod-detail.html" class="weui-media-box weui-media-box_appmsg weui-cell_access">
+					<div class="weui-media-box__hd" style="width:92px;height:92px;">
+						<img class="weui-media-box__thumb" src="./images/good2.jpg" alt="">
+					</div>
+					<div class="weui-media-box__bd">
+						<h4 class="weui-media-box__title" style="font-size:14px;margin-bottom:5px;">魅蓝 Note6</h4>
+						<p class="weui-media-box__desc" style="font-size:14px;margin-bottom:10px;-webkit-line-clamp:1;">公开版 深空灰 64GB</p>
+						<p class="weui-media-box__desc" style="font-size:14px;color:red;">¥1099</p>
+					</div>
+					<div class="weui-media-box__bd" >
+						<div style="float:right;">
+							<p style="font-size:15px;color: #999;margin-right:20px;">x3</p>
+						</div>
+					</div>
+				</a>
+				<a href="prod-detail.html" class="weui-media-box weui-media-box_appmsg weui-cell_access">
+					<div class="weui-media-box__hd" style="width:92px;height:92px;">
+						<img class="weui-media-box__thumb" src="./images/good5.jpg" alt="">
+					</div>
+					<div class="weui-media-box__bd">
+						<h4 class="weui-media-box__title" style="font-size:14px;margin-bottom:5px;">魅蓝 Note6</h4>
+						<p class="weui-media-box__desc" style="font-size:14px;margin-bottom:10px;-webkit-line-clamp:1;">公开版 深空灰 64GB</p>
+						<p class="weui-media-box__desc" style="font-size:14px;color:red;">¥1099</p>
+					</div>
+					<div class="weui-media-box__bd" >
+						<div style="float:right;">
+							<p style="font-size:15px;color: #999;margin-right:20px;">x4</p>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		<div class="weui-cells weui-cells_form" style="margin-top:10px;" >
+			<div class="weui-cell" style="padding: 5px 15px;">
+				<div class="weui-cell__bd">
+					<p style="font-size:14px;">商品金额 <span style="color:red;margin-left: 31px;"> ¥300</span></p>
+				</div>
+			</div>
+			<div class="weui-cell" style="padding: 5px 15px;">
+				<div class="weui-cell__bd">
+					<p style="font-size:14px;">物流运费 <span style="color:red;margin-left: 31px;"> + ¥10</span></p>
+				</div>
+			</div>
+			<div class="weui-cell" style="padding: 5px 15px;">
+				<div class="weui-cell__bd">
+					<p style="font-size:14px;">总的金额 <span style="color:red;margin-left: 31px;"> ¥310</span></p>
+				</div>
+			</div>
+			
+			<div class="weui-btn-area" style="margin-top:5px;margin-bottom: 7px;">
+				<a class="weui-btn weui-btn_primary" href="msg.html" id="" style="font-size: 14px;height:39px;">微信支付</a>
+			</div>
+		</div>
+    </div>
+</body>
+</html>
